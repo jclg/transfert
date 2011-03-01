@@ -1,11 +1,7 @@
 ##
-## Makefile for makefile in /home/le-gof_j
+## Makefile :D
 ## 
-## Made by jean-charles le-goff
-## Login   <le-gof_j@epitech.net>
-## 
-## Started on  Fri Oct 17 08:48:37 2008 jean-charles le-goff
-##
+
 
 CC_FreeBSD	= cc
 
@@ -21,7 +17,7 @@ CC_		= cc
 
 NAME		= transfert
 
-SRC		= transfert.c\
+SRC		= main.c\
 		  network.c\
 		  sender.c\
 		  receiver.c\
