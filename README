@@ -1,1 +1,11 @@
 A simple file transfer tool
+
+To receive a file:
+./transfert receive port
+
+To send a file:
+./transfert send host port file
+
+e.g:
+./transfert receive 8888
+./transfert send localhost 8888 myfile.txt
