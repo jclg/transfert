@@ -1,6 +1,6 @@
 /**
  * @file   network.c
- * @author  <jc@candice>
+ * @author jc <jean-charles.le-goff@epitech.eu>
  * @date   Sat Jun 19 16:50:31 2010
  * 
  * @brief  

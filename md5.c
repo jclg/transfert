@@ -1,6 +1,6 @@
 /**
  * @file   md5.c
- * @author  <jc@candice>
+ * @author jc <jean-charles.le-goff@epitech.eu>
  * @date   Fri Jun  4 15:52:41 2010
  * 
  * @brief  

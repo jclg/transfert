@@ -1,6 +1,6 @@
 /**
  * @file   receiver.c
- * @author  <jc@candice>
+ * @author jc <jean-charles.le-goff@epitech.eu>
  * @date   Fri Jun  4 15:33:08 2010
  * 
  * @brief  

@@ -1,6 +1,6 @@
 /**
  * @file   transfert.h
- * @author  <jc@candice>
+ * @author jc <jean-charles.le-goff@epitech.eu>
  * @date   Fri Jun  4 11:32:58 2010
  * 
  * @brief  
@@ -38,7 +38,7 @@ receiver - server
 
 #define USAGE "*** Transfert ***\nMade by JC\n\nTo receive file:\n./transfert receive port\n\nTo send file:\n./transfert send host port file\n"
 
-/* transfert.c */
+/* main.c */
 
 /* network.c */
 char	*network_try_resolve_hostname(char *host);
