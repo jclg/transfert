@@ -19,21 +19,21 @@ int			send_file(int s, char *filename, void *map, int size)
   unsigned int		md_len;
 
   /*****
-  - envoi du nom du fichier
-  - envoi de la taille du fichier
-  - envoi du checksum md5
-  - envoi du contenu du fichier
+   Filename
+   Filesize
+   MD5 Checksum
+   Content
   ******/
 
 
-  /* Nom du fichier */
+  /* Filename */
   if (write(s, filename, strlen(filename)) < 0)
     return (1);
   if (read(s, buf, BUF_SIZE) < 0)
     return (1);
 
 
-  /* Taille du fichier */
+  /* Filesize */
   snprintf(buf, BUF_SIZE, "%d", (uint)size);
   if (write(s, buf, strlen(buf)) < 0)
     return (1);
@@ -41,7 +41,7 @@ int			send_file(int s, char *filename, void *map, int size)
     return (1);
 
 
-  /* Checksum MD5 */
+  /* MD5 Checksum */
   get_md5((char *)map, (size_t)size, md_value, &md_len);
   printf("md5 checksum: ");
   print_md5(md_value, md_len);
@@ -52,7 +52,7 @@ int			send_file(int s, char *filename, void *map, int size)
     return (1);
 
 
-  /* Envoi du contenu du fichier */
+  /* Content */
   printf("Transfering file \"%s\"...\n", basename(filename));
   if (write(s, (char *)map, (uint)size) < 0)
     return (1);

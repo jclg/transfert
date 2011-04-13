@@ -33,22 +33,21 @@ int	receive_file(int cs, char filename[PATH_MAX],
 
 
   /*****
-	filename
-	size
-	md5
-	content
+	Filename
+	FileSize
+	MD5 Checksum
+	Content
    *****/
 
 
-  /* filename */
+  /* Filename */
   if (read(cs, filename, PATH_MAX) < 0)
     return (1);
   if (write(cs, STATUT, STATUT_SIZE) < 0)
     return (1);
-
-  /* get real filename */
   filename = basename(filename);
   printf("FILENAME %s\n", filename);
+
 
   /* Filesize */
   if (read(cs, file_size, MAX_SIZE) < 0)
@@ -57,7 +56,7 @@ int	receive_file(int cs, char filename[PATH_MAX],
     return (1);
   printf("SIZE %s\n", file_size);
   
-  /* MD5 */
+  /* MD5 Checksum */
   if (read(cs, md5_checksum, EVP_MAX_MD_SIZE) < 0)
     return (1);
   printf("MD5 ");
@@ -73,13 +72,14 @@ int	receive_file(int cs, char filename[PATH_MAX],
     return (printf("Error: Can't create file...\n"));
 
 
+  /* Content */
   ctr = 0;
   total_size = 0;
   total_size_max = atoi(file_size);
   while (total_size < total_size_max)
     {
       if ((size = read(cs, buf, BUF_SIZE)) < 0)
-	return (1);
+        return (1);
       total_size += size;
       if ((ctr % TRANS_DISPLAY) == 0)
 	printf("Getting %d / %s bytes\n", total_size, file_size);
