@@ -66,9 +66,11 @@ int			network_connect(char *host, int port)
  */
 int			network_listen(int port)
 {
-  int			s;
+  int                   s;
   struct sockaddr_in    sin;
+  int                   yes;
 
+  yes = 1;
   if ((s = socket(PF_INET, SOCK_STREAM, 0)) == -1)
     {
       fprintf(stderr, "Failed to create the socket...\n");
@@ -77,6 +79,7 @@ int			network_listen(int port)
   sin.sin_family = AF_INET;
   sin.sin_port = htons(port);
   sin.sin_addr.s_addr = INADDR_ANY;
+  setsockopt(s, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
   if (bind(s, (struct sockaddr*)&sin, sizeof(sin)) == -1)
     {
       fprintf(stderr, "Adress is already in use or not available...\n");
