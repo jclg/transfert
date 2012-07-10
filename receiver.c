@@ -15,8 +15,11 @@
 
 void                    no_zombies(int i)
 {
+  int   status;
+
   i = 0;
-  while (waitpid(0, NULL, WNOHANG) != -1);
+  (void)i;
+  wait(&status);
 }
 
 
